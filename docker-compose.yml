@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  db:
+    image: mysql:5.7
+    command: --innodb-use-native-aio=0
+    container_name: db
+    restart: always
+    tty: true
+    ports:
+      - 3306:3306 
+    volumes:
+      - ./.mysql:/var/lib/mysql
+    environment: 
+      - MYSQL_DATABASE=webflux 
+      - MYSQL_ROOT_PASSWORD=root
